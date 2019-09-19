@@ -1,0 +1,46 @@
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Solution {
+
+    
+
+    static void Main(string[] args) {
+        int n = Convert.ToInt32(Console.ReadLine());
+        
+        //convert input to binary numbers
+        string binary = Convert.ToString(n, 2);
+        
+        int answer = 0;
+        int count = 0;
+        
+        // split the binary to array 
+        string[] words = Regex.Split(binary, "");
+
+
+        for(int a = 0; a < words.Length; a++){
+           if ( words[a] == "1"){
+            count++;
+            if ( count > answer){
+                answer = count; 
+                }
+           } else {
+               count = 0;
+           }
+
+        }
+
+        Console.WriteLine(answer);
+    }
+}
